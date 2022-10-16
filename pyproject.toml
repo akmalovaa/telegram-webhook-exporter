@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "telegram-webhook-exporter"
+version = "1.0.0"
+description = ""
+authors = ["Akmalov Artur <akmalov.mail@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+prometheus-client = "^0.14.1"
+requests = "^2.28.1"
+python-dotenv = "^0.21.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

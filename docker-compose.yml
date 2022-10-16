@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  bot:
+    image: telegram_webhook_exporter
+    container_name: telegram_webhook_exporter
+    environment:
+      - TOKEN=${TOKEN}
+      - UPDATE_PERIOD=${UPDATE_PERIOD}
+    ports:
+      - 8000:8000
+
+
+# Manual build
+# docker build . -t telegram_webhook_exporter
