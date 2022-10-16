@@ -8,7 +8,7 @@ import logging
 from dotenv import load_dotenv
 from prometheus_client import start_http_server, Gauge, Info
 
-logging.basicConfig(stream=sys.stdout, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(stream=sys.stdout, level=logging.INFO, format='%(asctime)s - %(message)s')
 
 load_dotenv()
 UPDATE_PERIOD = int(os.getenv('UPDATE_PERIOD'))
@@ -35,16 +35,15 @@ def getWebhookInfo() -> dict:
 def telegram_response_pars():
     data: dict = getWebhookInfo()
     logging.info(f"Webhook result: {data}")
-    pending_update_count: int = data.get('result', {}).get('pending_update_count', 2)
+    pending_update_count: int = data.get('result', {}).get('pending_update_count', 1)
     ip_address: str = data.get('result', {}).get('ip_address', 'None')
     webhook_url: str = data.get('result', {}).get('url', 'None')
     last_error_message: str = data.get('result', {}).get('last_error_message', 'None')
-    last_error_date: int | str = data.get('result', {}).get('last_error_date', 'None')
 
     TG_PENDING_UPDATE_COUNT.set(pending_update_count)
+    TG_CHECK_ERROR.set('0') if last_error_message == 'None' else TG_CHECK_ERROR.set('1')
     TG_CHECK_IP.set('0') if ip_address == 'None' else TG_CHECK_IP.set('1')
     TG_CHECK_URL.set('0') if webhook_url == 'None' or webhook_url == '' else TG_CHECK_URL.set('1')
-    TG_CHECK_ERROR.set('0') if last_error_message == 'None' else TG_CHECK_ERROR.set('1')
 
 
 if __name__ == '__main__':
