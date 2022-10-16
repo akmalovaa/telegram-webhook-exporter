@@ -22,7 +22,9 @@ cd telegram-webhook-exporter
 docker build . -t telegram_webhook_exporter
 cp .env.example .env
 ```
-
+```bash
+nano .env
+```
 Change file .env
 Edit YOUR TOKEN and UPDATE PERIOD
 
