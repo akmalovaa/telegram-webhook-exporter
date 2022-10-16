@@ -9,8 +9,8 @@ Simple Python exporter
 ### Docker build
 
 ```bash
-git clone ''
-cd telegram_webhook_exporter
+git clone https://github.com/akmalovaa/telegram-webhook-exporter.git
+cd telegram-webhook-exporter
 docker build . -t telegram_webhook_exporter
 cp .env.example .env
 ```
