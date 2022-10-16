@@ -9,7 +9,3 @@ services:
       - UPDATE_PERIOD=${UPDATE_PERIOD}
     ports:
       - 8000:8000
-
-
-# Manual build
-# docker build . -t telegram_webhook_exporter
