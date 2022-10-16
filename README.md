@@ -3,6 +3,8 @@
 This is a Prometheus exporter for Telegram Bot API getWebhookInfo.
 Simple Python exporter
 
+Used JSON info GET URL - https://api.telegram.org/YOUR_TOKEN/getWebhookInfo
+
 ## Installation
 
 
