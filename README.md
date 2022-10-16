@@ -1,6 +1,6 @@
 # Telegram Webhook info exporter
 
-This is a Prometheus exporter for [Telegram Bot API getWebhookInfo](https://core.telegram.org/bots/api#webhookinfo)
+This is a Prometheus exporter for Telegram Bot API [getWebhookInfo](https://core.telegram.org/bots/api#webhookinfo)
 
 
 Used JSON info GET URL - https://api.telegram.org/YOUR_TOKEN/getWebhookInfo
