@@ -38,8 +38,8 @@ or using docker run an environment variable:
 ```bash
 $ docker run \
   -e 'TOKEN=<your bot token>' \
-  -e  'UPDATE_PERIOD=15' \
-  -e  'PORT=8000' \
+  -e 'UPDATE_PERIOD=15' \
+  -e 'PORT=8000' \
   -p 8000:8000 \
   telegram_webhook_exporter
 ```
