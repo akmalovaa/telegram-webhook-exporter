@@ -6,10 +6,10 @@ This is a Prometheus exporter for Telegram Bot API [getWebhookInfo](https://core
 Used JSON info GET URL - https://api.telegram.org/YOUR_TOKEN/getWebhookInfo
 
 Prometheus Metrics:
-- **tg_pending_update_count** - pending_update_count Number of updates awaiting delivery (required 0) 
+- **tg_pending_update_count** - pending_update_count Number of updates awaiting delivery (required 0)
 - **tg_check_error** - Check last_error_message > True: 1 False: 0 (required 0)
 - **tg_check_ip** - Check ip address > True: 1 False: 0 (Optional: required 1)
-- **tg_check_url** - Check URL address > True: 1 False: 0 (Optional: required 1) 
+- **tg_check_url** - Check URL address > True: 1 False: 0 (Optional: required 1)
 
 ## Installation
 
@@ -35,11 +35,12 @@ or using docker run an environment variable:
 
 ```bash
 $ docker run \
-  -e 'TOKEN=<your bot token>', 'UPDATE_PERIOD=15' \
+  -e 'TOKEN=<your bot token>' \
+  -e  'UPDATE_PERIOD=15' \
+  -e  'PORT=8000' \
   -p 8000:8000 \
   telegram_webhook_exporter
 ```
-
 
 
 ## License

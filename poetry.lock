@@ -18,6 +18,14 @@ python-versions = ">=3.6.0"
 unicode_backport = ["unicodedata2"]
 
 [[package]]
+name = "envcast"
+version = "1.2.0"
+description = "This module helps to cast environment variables to desired types. It may be very useful for 12factor app usage."
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[[package]]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -81,7 +89,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "f4055a97281943c8ce77181ead0f06a052a215177ce3f4ec4cb8c964ec7e7b7f"
+content-hash = "a80466c7476a5565aed2714f92e0f7ecf2b782d584fa05a207aa77ce65a00182"
 
 [metadata.files]
 certifi = [
@@ -91,6 +99,10 @@ certifi = [
 charset-normalizer = [
     {file = "charset-normalizer-2.1.1.tar.gz", hash = "sha256:5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"},
     {file = "charset_normalizer-2.1.1-py3-none-any.whl", hash = "sha256:83e9a75d1911279afd89352c68b45348559d1fc0506b054b346651b5e7fee29f"},
+]
+envcast = [
+    {file = "envcast-1.2.0-py3-none-any.whl", hash = "sha256:db52c9448da0fc4f88967911763a471e55708373793d4fcce1124609a9f124bd"},
+    {file = "envcast-1.2.0.tar.gz", hash = "sha256:bbd4342af70fab3c3c652e52ce3dd5055d563338352f8816b14ef52d601b8e0a"},
 ]
 idna = [
     {file = "idna-3.4-py3-none-any.whl", hash = "sha256:90b77e79eaa3eba6de819a0c442c0b4ceefc341a7a2ab77d7562bf49f425c5c2"},
