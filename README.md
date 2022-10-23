@@ -28,6 +28,8 @@ nano .env
 Change file .env
 Edit YOUR TOKEN and UPDATE PERIOD
 
+Run:
+
 ```bash
 docker-compose up -d
 ```
