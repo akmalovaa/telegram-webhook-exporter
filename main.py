@@ -44,7 +44,7 @@ def parse_telegram_response() -> None:
     TG_PENDING_UPDATE_COUNT.set(pending_update_count)
     TG_CHECK_ERROR.set(0 if last_error_message is None else 1)
     TG_CHECK_IP.set(0 if ip_address is None else 1)
-    TG_CHECK_URL.set(0 if webhook_url is None else 1)
+    TG_CHECK_URL.set(0 if webhook_url is None or webhook_url ==''  else 1)
 
 
 def start_export_cycle() -> None:
