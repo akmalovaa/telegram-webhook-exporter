@@ -1,6 +1,7 @@
 import sys
 import logging
 import time
+import datetime
 
 import envcast
 import requests
@@ -11,7 +12,7 @@ from prometheus_client import start_http_server, Gauge, metrics
 logging.basicConfig(stream=sys.stdout, level=logging.INFO, format='%(asctime)s - %(message)s')
 
 UPDATE_PERIOD: int = envcast.env("UPDATE_PERIOD", 15, type_cast=int)
-TOKEN: str = envcast.env("TOKEN", 15, type_cast=str)
+TOKEN: str = envcast.env("TOKEN", "", type_cast=str)
 if not TOKEN:
     raise ValueError("Missing telegram token in enviroment variables")
 URL: str = f"https://api.telegram.org/bot{TOKEN}/getWebhookInfo"
@@ -40,9 +41,14 @@ def parse_telegram_response() -> None:
     ip_address: str | None = webhook_info.get("result", {}).get("ip_address")
     webhook_url: str | None = webhook_info.get("result", {}).get("url")
     last_error_message: str | None = webhook_info.get("result", {}).get("last_error_message")
+    last_error_date: str | None = webhook_info.get("result", {}).get("last_error_date")
+    # no checking the last error more than 60 seconds ago
+    last_error_time: datetime.datetime = datetime.datetime.utcfromtimestamp(int(last_error_date))
+    now_time: datetime.datetime = datetime.datetime.now()
+    sec_after_last_error: float = (now_time - last_error_time).total_seconds()
 
     TG_PENDING_UPDATE_COUNT.set(pending_update_count)
-    TG_CHECK_ERROR.set(0 if last_error_message is None else 1)
+    TG_CHECK_ERROR.set(0 if last_error_message is None or sec_after_last_error > 60 else 1)
     TG_CHECK_IP.set(0 if ip_address is None else 1)
     TG_CHECK_URL.set(0 if webhook_url is None or webhook_url ==''  else 1)
 
