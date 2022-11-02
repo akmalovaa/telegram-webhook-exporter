@@ -44,6 +44,12 @@ $ docker run \
   telegram_webhook_exporter
 ```
 
+## Grafana
+Example used type - State timeline
+
+![telegram-webhook-exporter](https://github.com/akmalovaa/telegram-webhook-exporter/blob/master/telegram-webhook-exporter.png)
+
+
 
 ## License
 
